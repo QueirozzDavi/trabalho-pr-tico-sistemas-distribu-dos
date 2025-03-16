@@ -6,14 +6,18 @@ app = Flask(__name__)
 def login():
     # Recebe os dados do corpo da requisição
     dados = request.json
-    login = dados.get('login')
-    senha = dados.get('senha')
-
-    # Retorna os mesmos dados como resposta
-    return jsonify({
-        'login_recebido': login,
-        'senha_recebida': senha
-    })
+    
+    # Verifica se o login e a senha foram fornecidos
+    if 'login' not in dados or 'senha' not in dados:
+        return jsonify({"erro": "Login e senha são obrigatórios"}), 400
+    
+    # Extrai o login e a senha
+    login = dados['login']
+    senha = dados['senha']
+    
+    # Retorna os dados recebidos como resposta
+    return jsonify({"login": login, "senha": senha}), 200
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # Inicia o servidor na porta 5000
+    app.run(host='0.0.0.0', port=5000)
