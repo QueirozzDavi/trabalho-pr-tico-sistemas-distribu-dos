@@ -18,5 +18,5 @@ O servidor foi desenvolvido em Python utilizando o framework Flask.
 ## Como Executar
 
 1. Clone o repositório:
-   ```bash
+python servidor.py
 https://github.com/QueirozzDavi/trabalho-pr-tico-sistemas-distribu-dos/new/main
